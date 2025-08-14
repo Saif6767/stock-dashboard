@@ -10,7 +10,7 @@ export default function useStockData() {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/companies");
+        const res = await axios.get("https://stock-dashboard-y4h3.onrender.com/api/companies");
         setCompanies(res.data);
         if (res.data.length > 0) setSelected(res.data[0]);
       } catch (err) {
@@ -25,7 +25,7 @@ export default function useStockData() {
     const fetchStockData = async () => {
       if (!selected) return;
       try {
-        const res = await axios.get(`http://localhost:5000/api/stocks/${selected.symbol}`);
+        const res = await axios.get(`https://stock-dashboard-y4h3.onrender.com/api/stocks/${selected.symbol}`);
         setStock(res.data);
       } catch (err) {
         console.error("Error fetching stock data:", err);
